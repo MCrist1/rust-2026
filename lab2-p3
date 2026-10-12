@@ -13,11 +13,9 @@ fn add_integer(s: &mut String, n: i32) {
         s.push('0');
         return;
     }
-
     let mut n = n;
     let mut count = 0;
     let mut buffer: Vec<char> = Vec::new();
-
     while n > 0 {
         let digit = n % 10;
         buffer.push((digit as u8 + b'0') as char);
@@ -27,7 +25,6 @@ fn add_integer(s: &mut String, n: i32) {
             buffer.push('_');
         }
     }
-
     buffer.reverse();
     for c in buffer {
         s.push(c);
@@ -38,7 +35,6 @@ fn add_float(s: &mut String, f: f32) {
     let int_part = f as i32;
     add_integer(s, int_part);
     s.push('.');
-
     let mut frac = f - int_part as f32;
     for _ in 0..3 {
         frac *= 10.0;
@@ -50,18 +46,12 @@ fn add_float(s: &mut String, f: f32) {
 
 fn main() {
     let mut s = String::new();
-
-    // Rândul 1
     add_space(&mut s, 40);
     add_str(&mut s, "I");
     add_space(&mut s, 1);
     add_str(&mut s, "💚\n");
-
-    // Rândul 2
     add_space(&mut s, 40);
     add_str(&mut s, "RUST.\n\n");
-
-    // Rândul 3
     add_space(&mut s, 4);
     add_str(&mut s, "Most");
     add_space(&mut s, 12);
@@ -74,8 +64,6 @@ fn main() {
     add_str(&mut s, "lastest");
     add_space(&mut s, 9);
     add_str(&mut s, "is\n");
-
-    // Rândul 4
     add_space(&mut s, 9);
     add_str(&mut s, "downloaded");
     add_space(&mut s, 8);
